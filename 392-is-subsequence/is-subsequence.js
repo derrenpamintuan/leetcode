@@ -4,13 +4,18 @@
  * @return {boolean}
  */
 const isSubsequence = (s, t) => {
-  if (s.length > t.length) return false;
-  const t_length = t.length;
-  let subsequence = 0;
-  for (let i = 0; i < t_length; i++) {
-    if (s[subsequence] === t[i]) {
-      subsequence++;
+    // if s is longet than t, return false
+    if (s.length > t.length) return false;
+    // declare variable for checking each letter in s string
+    let subsequence = 0;
+    // loop over t string
+    for (let i = 0; i < t.length; i++) {
+        // if s at index of subsequence is equal to the character
+        if (s[subsequence] === t[i]) {
+            // increment subsequence
+            subsequence++;
+        }
     }
-  }
-  return subsequence === s.length
+    // return true if subsequence length is equal to s length
+    return subsequence === s.length
 };
