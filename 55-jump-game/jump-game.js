@@ -10,11 +10,10 @@ var canJump = function(nums) {
     if (index <= 0) return false;
 
     for (let i = 1; i < nums.length; i++) {
-        if (i === last) return true;
         index = index - 1;
 
         if (nums[i] > index) index = nums[i];
-        if (index === 0) return false;
+        if (index === 0 && i !== last) return false;
     }
 
     return true;
