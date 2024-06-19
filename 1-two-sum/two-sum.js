@@ -4,12 +4,13 @@
  * @return {number[]}
  */
 var twoSum = function(nums, target) {
-for (let i = 0; i < nums.length; i++) {
-    const diff = target - nums[i];
-    const indexOfNum = nums.indexOf(diff);
+    const pairIdx = {};
 
-    if (indexOfNum !== -1 && indexOfNum !== i) {
-        return [i, indexOfNum];
-    }
-}
+    for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        if (target - num in pairIdx) {
+            return [i, pairIdx[target - num]];
+        }
+        pairIdx[num] = i;
+    }    
 };
