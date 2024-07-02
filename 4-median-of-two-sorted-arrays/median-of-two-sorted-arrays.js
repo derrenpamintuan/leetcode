@@ -8,7 +8,7 @@ var findMedianSortedArrays = function(nums1, nums2) {
     let mergedA = nums1.concat(nums2);
     // Sort the merged array in ascending order
     let sortedA = mergedA.sort(function (a, b) { return a - b });
-    //# Calculate the middle index
+    // Calculate the middle index
     let middleI = (sortedA.length - 1) / 2;
     // Check if the length of the sorted array is even
     if (sortedA.length % 2 === 0) {
