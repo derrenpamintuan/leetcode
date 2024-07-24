@@ -3,24 +3,19 @@
  * @return {number}
  */
 var myAtoi = function(s) {
-    s = s.trim();
-    if (s.length === 0) {
-        return 0;
-    }
-    let num = 0;
-    let i = 0;
-    let sign = 1;
-    if (s[i] === '+') {
-        i++;
-    } else if (s[i] === '-') {
-        i++;
-        sign = -1;
-    }
-    while (i < s.length && /^\d$/.test(s[i])) {
-        num = num * 10 + parseInt(s[i]);
-        i++;
-    }
-    num *= sign;
-    num = Math.max(Math.min(num, Math.pow(2, 31) - 1), -Math.pow(2, 31));
-    return num;
-}
+  const noSpaces = s.trim();
+  const fChar = noSpaces[0];
+
+  if (noSpaces.length === 1 && fChar === '-' || noSpaces.length === 1 && fChar === '+') { return 0 }
+  if (isNaN(fChar) && fChar !== '-' && fChar !== '+') { return 0 }
+
+  if (noSpaces.length > 1) {
+    const sChar = noSpaces[1];
+    if (isNaN(fChar) && isNaN(sChar) || isNaN(fChar) && sChar === ' ') { return 0 }
+  }
+
+  if (parseInt(noSpaces) < -2147483648 ) { return -2147483648 }
+  if (parseInt(noSpaces) > 2147483647 ) { return 2147483647 }
+
+  return parseInt(noSpaces);
+};
