@@ -9,14 +9,14 @@
 var isValid = function(s) {
     let pairs = [];
 
-    for (let c of s) {
-        if (c === '(' || c === '{' || c === '[') {
-            pairs.push(c);
+    for (let i of s) {
+        if (i === '(' || i === '{' || i === '[') {
+            pairs.push(i);
         } else {
             if (!pairs.length ||
-                (c === ')' && pairs[pairs.length - 1] !== '(') ||
-                (c === '}' && pairs[pairs.length - 1] !== '{') ||
-                (c === ']' && pairs[pairs.length - 1] !== '[')) {
+                (i === ')' && pairs[pairs.length - 1] !== '(') ||
+                (i === '}' && pairs[pairs.length - 1] !== '{') ||
+                (i === ']' && pairs[pairs.length - 1] !== '[')) {
                 return false;
             }
             pairs.pop();
